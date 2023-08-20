@@ -23,7 +23,7 @@ A clear and concise description of what you expected to happen.
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
 
-**Desktop (please complete the following information):**
+**Desktop:**
  - OS: [e.g. Windows 10]
 
 KEEP IN MIND... THIS IS AN OPTIONAL OUTLINE. YOU MAY MODIFY/NOT USE THIS TEMPLATE IF YOU'D LIKE.
