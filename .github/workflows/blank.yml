@@ -1,33 +1,14 @@
 name: Triage
 on:
-  # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request_target
-  # All event types
-  # Be careful when adding more actions to this workflow
-  # https://github.com/actions/labeler#permissions
-  pull_request_target:
-    types: [labeled, unlabeled, opened, ready_for_review, reopened, synchronize]
+  issues:
+    types: [opened]
 
 jobs:
-  label-pull-request:
-    name: 'Label Pull Request'
-    permissions:
-      contents: read
-      pull-requests: write
+  greet:
     runs-on: ubuntu-latest
+    name: Issue comment
     steps:
-      - uses: actions/labeler@v4 # https://github.com/actions/labeler
+      - name: issue comment
+        uses: kyoncy/issue-comment-actions@v1
         with:
-          repo-token: '${{ secrets.GITHUB_TOKEN }}'
-          sync-labels: true
-          dot: true
-  first-interaction:
-    name: First Interaction
-    permissions:
-      contents: read
-      pull-requests: write
-    runs-on: ubuntu-latest
-    steps:
-      - uses: alexrogalskiy/github-action-issue-commenter@master # https://github.com/actions/first-interaction
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          pr-message: "Hi @${{ github.event.pull_request.user.login }}, thanks so much for helping improve Poly Defense! Our technical writing team will review your issue soon."
+          message: "Hi, thanks so much for helping improve Poly Defense! Our development team will review your issue soon."
